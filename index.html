@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aishwarya Satwani — Value-Aligned Recommender Systems</title>
+<meta name="description" content="Aishwarya Satwani, Ph.D. candidate at CU Boulder, builds recommender systems that weigh human values alongside engagement. Research, engineering, teaching, and creative work." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/sections.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-logo">Aishwarya <span>Satwani</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#believe">Believe</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#built">Industry</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#beyond">Beyond</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle deep navy theme">
+        <svg id="themeIconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.5A9 9 0 1 1 11.5 3a7 7 0 0 0 9.5 9.5Z"/></svg>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="hero-kicker eyebrow">Ph.D. Student · University of Colorado Boulder</div>
+        <h1>The systems we build shape the world we live in. What <em>should</em> they value?</h1>
+        <p class="hero-sub">
+          I'm Aishwarya — a doctoral researcher, a former full-stack engineer, and this year's lead TA
+          for CU Boulder's CS department. I build things, study why they work, and
+          teach other people to do both.
+        </p>
+      </div>
+      <div class="hero-portrait">
+        <div class="frame"><img src="images/me.jpeg" alt="Portrait of Aishwarya Satwani" /></div>
+        <div class="tag"><b>Boulder, CO</b>Expected Ph.D. 12/2027</div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span class="line"></span>scroll</div>
+  </header>
+
+  <!-- ===================== BELIEVE ===================== -->
+  <section class="believe-section section-alt" id="believe">
+    <div class="wrap reveal">
+      <div class="eyebrow" style="justify-content:center;">What I believe</div>
+      <p class="believe-statement">
+        We have spent decades teaching machines to optimize: clicks, purchases, watch time, accuracy, 
+        engagement, efficiency. These metrics have made our systems remarkably powerful, but <em>they are 
+        proxies for human goals, not human values.</em> If we want AI to reflect humanity, someone has to 
+        decide what it's values are, and make sure that answer comes from the people and communities 
+        it serves. That's the work I care about.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== RESEARCH ===================== -->
+  <section id="research">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">01 — Research</div>
+        <h2>Value-aligned recommender systems</h2>
+        <p class="section-intro">
+          My dissertation asks what a news recommender looks like if it optimizes for something other
+          than clicks.
+        </p>
+      </div>
+
+      <div class="research-list">
+
+        <article class="research-card reveal">
+          <div class="rc-meta">2021 – Present<span class="org">POPROX · NSF Grant #2232551</span></div>
+          <div>
+            <h3>An open platform for real-world recommender experiments</h3>
+            <p class="challenge">No infrastructure existed for longitudinal recommender research with actual news readers.</p>
+            <ul>
+              <li>Co-built POPROX with 5 universities and the Associated Press — real newsletters, controlled A/B tests against external ranking models.</li>
+              <li>Built the offline evaluation framework (NDCG, MRR, RBO, ILS, section-based metrics) used across every experiment on the platform.</li>
+            </ul>
+            <div class="rc-tags"><span>Infrastructure</span><span>Online Experimentation</span><span>AP Collaboration</span></div>
+          </div>
+        </article>
+
+        <article class="research-card reveal">
+          <div class="rc-meta">2024<span class="org">Personalized Diversity Experiment</span></div>
+          <div>
+            <h3>Resolving the diversity–engagement tradeoff</h3>
+            <p class="challenge">More diverse recommendations usually mean fewer clicks — a tax that keeps diverse systems from shipping.</p>
+            <ul>
+              <li>Ran a 5-week experiment on POPROX: relevance baseline, generalized diversification (MMR), and personalized diversification (MMR-P).</li>
+              <li>Generalized MMR tanked engagement; MMR-P held it steady while hitting the highest measured diversity. Paper under review.</li>
+            </ul>
+            <div class="rc-tags"><span>Reranking</span><span>Diversity</span><span>Online Experimentation</span></div>
+          </div>
+        </article>
+
+        <article class="research-card reveal">
+          <div class="rc-meta">2023 – Present<span class="org">Journalistic Values in Ranking</span></div>
+          <div>
+            <h3>Putting editorial judgment into the ranking function</h3>
+            <p class="challenge">Journalists' values are absent from recommender design — no method existed to encode them as inputs.</p>
+            <ul>
+              <li>Interviewed 12 digital journalists; found they rewrite stories to game opaque algorithms, often at the cost of integrity.</li>
+              <li>Identified timeliness, accountability, transparency, and public service as encodable value dimensions — now coding 4 focus groups' worth of editorial judgment into ranking signals.</li>
+            </ul>
+            <div class="rc-tags"><span>Qualitative HCI</span><span>Value Elicitation</span></div>
+          </div>
+        </article>
+
+        <article class="research-card reveal">
+          <div class="rc-meta">2024<span class="org">Provider Fairness · FAccT 2024</span></div>
+          <div>
+            <h3>Fairness definitions written by the people they affect</h3>
+            <p class="challenge">Fairness metrics are usually designed by developers, not the providers a platform actually affects.</p>
+            <ul>
+              <li>Ran 4 co-design focus groups with 13 creators and dating-app users; found providers experience unfairness as underexposure, overexposure, and lost agency — none captured by standard metrics.</li>
+              <li>Published at FAccT 2024, showing mathematical fairness doesn't guarantee real-world equity without provider input.</li>
+            </ul>
+            <div class="rc-tags"><span>Fairness</span><span>Published</span></div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="mini-link-row reveal">
+        <div class="subhead">Publications</div>
+        <div class="pub-list" style="margin-top:0;">
+          <div class="pub-item" style="border-top:1px solid var(--border-soft);">
+            <div class="pub-year">2026</div>
+            <p><b>Satwani, A.</b> Aligning Algorithms with Axiology: Operationalizing Journalistic Values in News Recommender Systems.<span class="venue">RecSys 2026 Doctoral Symposium — Accepted</span></p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-year">2026</div>
+            <p><b>Satwani, A.</b>, &amp; Burke, R. Personalizing Diversity in News Recommendation: A User Study.<span class="venue">RecSys FRAME Workshop 2026 — Accepted</span></p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-year">2026</div>
+            <p>Higley, K., Burke, R., Ekstrand, M., Kluver, D., Knijnenburg, B., Malthouse, E., Hasan, M., Iqbal, M., Parajuli, S., <b>Satwani, A.</b>, Sristy, Z., Suna, R., &amp; Konstan, J. Designing HCAI Field Experiment Research Platforms: The POPROX News Experience.<span class="venue">International Journal of Human–Computer Interaction — Under Review</span></p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-year">2024</div>
+            <p>Smith, J. J., <b>Satwani, A.</b>, Burke, R., &amp; Fiesler, C. Recommend me? Designing fairness metrics with providers.<span class="venue">ACM Conference on Fairness, Accountability, and Transparency (FAccT '24), 830–839</span></p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-year">2023</div>
+            <p>Alaqabawy, N., <b>Satwani, A.</b>, Voida, A., &amp; Burke, R. "It's just a robot that looks at numbers": Restoring journalistic voice in news recommendation.<span class="venue">INRA @ RecSys 2023 — <a href="https://ceur-ws.org/Vol-3561/paper1.pdf" target="_blank" rel="noopener">ceur-ws.org/Vol-3561/paper1.pdf</a></span></p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-year">2023</div>
+            <p>Alaqabawy, N., <b>Satwani, A.</b>, &amp; Burke, R. The Journalistic Algorithm: A news recommender platform for public service journalism.<span class="venue">Broadcast Education Association</span></p>
+          </div>
+          <div class="pub-item">
+            <div class="pub-year">2018</div>
+            <p><b>Satwani, A.</b>, Rao, M., &amp; Nagaraju, N. Data Mining Techniques for Heart Disease Prediction.<span class="venue">International Conference on New Trends in Engineering and Technology (IEEE-supported), Chennai</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VALUE DIAL (demo, closes out Research) ===================== -->
+  <section class="dial-section" id="dial">
+    <div class="wrap">
+      <div class="dial-head reveal">
+        <div class="eyebrow">See the finding work</div>
+        <h2>The Value Dial</h2>
+        <p>
+          Personalized diversity (MMR-P) holds engagement steady while surfacing far more variety than
+          generalized diversity does. Here's a tiny working version of that idea, pointed at my own work
+          instead of a news feed: drag the dial and watch it re-rank between "most relevant to my PhD"
+          and "most diverse across everything I do."
+        </p>
+      </div>
+
+      <div class="dial-control reveal">
+        <div class="dial-control-row">
+          <span class="dial-side left"><span class="dot"></span>Relevance</span>
+          <input type="range" id="dialSlider" min="0" max="100" value="15" aria-label="Balance between relevance and diversity" />
+          <span class="dial-side right">Diversity<span class="dot"></span></span>
+        </div>
+        <div class="dial-readout" id="dialReadout">Weighted toward <b>relevance</b> — leading with core PhD research</div>
+        <div class="dial-filters" id="dialFilters">
+          <button class="chip active" data-filter="all">All work</button>
+          <button class="chip" data-filter="research">Research</button>
+          <button class="chip" data-filter="industry">Built</button>
+          <button class="chip" data-filter="teaching">Teaching</button>
+          <button class="chip" data-filter="personal">Art</button>
+        </div>
+      </div>
+
+      <div class="dial-grid reveal" id="dialGrid">
+
+        <article class="dial-card cat-research" data-relevance="1.0" data-diversity="0.25" data-category="research">
+          <div class="dial-card-top"><h4>Personalized diversity beats generalized diversity</h4><span class="score-badge">core</span></div>
+          <div class="meta">CU Boulder · User study · Paper under review</div>
+          <p>The flagship finding: personalized MMR-P holds engagement steady while maximizing diversity, where generalized MMR just tanks clicks.</p>
+          <div class="tags"><span>MMR</span><span>User Study</span></div>
+        </article>
+
+        <article class="dial-card cat-research" data-relevance="1.0" data-diversity="0.15" data-category="research">
+          <div class="dial-card-top"><h4>POPROX — a national news-recommender platform</h4><span class="score-badge">core</span></div>
+          <div class="meta">CU Boulder · NSF #2232551 · 2021–Present</div>
+          <p>Co-built an open experimentation platform with 5 universities and the Associated Press.</p>
+          <div class="tags"><span>Research</span><span>Infrastructure</span></div>
+        </article>
+
+        <article class="dial-card cat-research" data-relevance="0.9" data-diversity="0.4" data-category="research">
+          <div class="dial-card-top"><h4>Designing fairness metrics with providers</h4><span class="score-badge">FAccT '24</span></div>
+          <div class="meta">4 focus groups · 13 creators &amp; dating-app users</div>
+          <p>Providers experience unfairness as underexposure, overexposure, and lost agency — none captured by standard fairness metrics.</p>
+          <div class="tags"><span>Fairness</span><span>Published</span></div>
+        </article>
+
+        <article class="dial-card cat-industry" data-relevance="0.45" data-diversity="0.8" data-category="industry">
+          <div class="dial-card-top"><h4>HR Merit Increment platform, 700 senior leaders</h4></div>
+          <div class="meta">Walmart Global Tech · React + Node</div>
+          <p>Took the annual increment process from 3 months of manual Excel work to a live web app — end to end, as sole engineer at first.</p>
+          <div class="tags"><span>Fullstack</span><span>Automation</span></div>
+        </article>
+
+        <article class="dial-card cat-teaching" data-relevance="0.5" data-diversity="0.65" data-category="teaching">
+          <div class="dial-card-top"><h4>Lead TA, software engineering capstone</h4></div>
+          <div class="meta">CU Boulder · CSCI 4308 · 2025–Present</div>
+          <p>Mentoring student teams through the full software lifecycle — not just the code, the judgment calls around it.</p>
+          <div class="tags"><span>Mentorship</span><span>Teaching</span></div>
+        </article>
+
+        <article class="dial-card cat-personal" data-relevance="0.15" data-diversity="1.0" data-category="personal">
+          <div class="dial-card-top"><h4>Creative Space</h4></div>
+          <div class="meta">Oil · Charcoal · Pencil · Ongoing</div>
+          <p>The non-algorithmic side of paying close attention — painting when the ranking metrics can wait.</p>
+          <div class="tags"><span>Personal</span><span>Art</span></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BUILT (INDUSTRY / ENGINEERING) ===================== -->
+  <section id="built" class="section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">02 — Industry</div>
+        <h2>Industry Experience</h2>
+        <p class="section-intro">
+          Before the PhD, and running alongside it, I've been a working engineer — three years at
+          Walmart Global Tech taking a solo intern prototype to a product used by thousands, plus a
+          forecasting engine at Hitachi Energy. The research asks what recommenders should value; this
+          is proof I can ship the thing.
+        </p>
+      </div>
+
+      <div class="timeline reveal">
+
+        <div class="tl-item">
+          <div class="tl-date">Sept 2020 – Jun 2021</div>
+          <h3>Software Engineer III <span class="pill" style="margin-left:8px; font-size:0.65rem; vertical-align:2px;">Bravo Award '20</span></h3>
+          <div class="tl-org">Walmart Global Tech, Bangalore</div>
+          <ul>
+            <li>Owned the full lifecycle of AskME-HR, the chatbot I originally built as an intern — scaled to 10,000+ monthly active users and grew a dedicated sub-team around it.</li>
+            <li>Designed a GraphQL API layer unifying HR data access across previously siloed applications.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-date">Jul 2018 – Sept 2020</div>
+          <h3>Software Engineer II</h3>
+          <div class="tl-org">Walmart Global Tech, Bangalore</div>
+          <ul>
+            <li>Built the HR Merit Web Application end-to-end — React frontend, Node backend, infrastructure — as sole engineer, replacing 3 months of manual Excel work for 700 senior leaders.</li>
+            <li>Shipped NLP capabilities (sentiment analysis, speech-to-text, multilingual support) from proof-of-concept to production.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-date">Jan 2018 – Jun 2018</div>
+          <h3>Software Engineering Intern</h3>
+          <div class="tl-org">Walmart Global Tech, Bangalore</div>
+          <ul>
+            <li>Built AskME, an HR self-service chatbot, from scratch solo — deployed across Slack, Zoom, Teams, Webchat, and Chrome, then converted into a full enterprise product on my return full-time.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-date">May 2022 – Aug 2022</div>
+          <h3>Software Engineering Intern</h3>
+          <div class="tl-org">Hitachi Energy, Remote, USA</div>
+          <ul>
+            <li>Designed a multi-horizon forecasting engine for TRMTracker — neural networks for short-term, regression for medium/long-term — with REST APIs for real-time delivery.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ACADEMIC PROJECTS ===================== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">03 — Projects</div>
+        <h2>Academic projects</h2>
+        <p class="section-intro">
+          Smaller builds outside of work and the dissertation — recommenders, optimization, and NLP.
+          Code linked where public.
+        </p>
+      </div>
+
+      <div class="projects-grid reveal">
+
+        <div class="project-card">
+          <div class="pc-top"><h4>What's New: News Recommender</h4><span class="pc-year">2023</span></div>
+          <p>DKN, NRMS, and LSTUR on the MIND dataset with MMR-based diversity re-ranking.</p>
+          <a class="pc-link" href="https://github.com/aisa6148/News_Recommendation_Project_2023" target="_blank" rel="noopener">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+        </div>
+
+        <div class="project-card">
+          <div class="pc-top"><h4>Itinerary Optimizer</h4><span class="pc-year">2022</span></div>
+          <p>Cross-country route planning with a Genetic Algorithm, handling travel-limit and stop constraints.</p>
+          <a class="pc-link" href="https://github.com/aisa6148/Itinerary_Optimization_2022" target="_blank" rel="noopener">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+        </div>
+
+        <div class="project-card">
+          <div class="pc-top"><h4>Product Feature Analysis</h4><span class="pc-year">2022</span></div>
+          <p>LDA topic modeling over 1.2M customer reviews, distilled into 14 features per category with feature-level sentiment.</p>
+          <a class="pc-link" href="https://github.com/aisa6148/Product_Feature_Analysis_Customer_Reviews_2022" target="_blank" rel="noopener">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+        </div>
+
+        <div class="project-card">
+          <div class="pc-top"><h4>PCL Detection</h4><span class="pc-year">2021</span></div>
+          <p>RoBERTa-based binary classifier for Patronizing and Condescending Language, built for SemEval 2022 Task 4.</p>
+          <a class="pc-link" href="https://github.com/aisa6148/Patronizing_Condescending_Language_Detection_2021" target="_blank" rel="noopener">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+        </div>
+
+        <div class="project-card">
+          <div class="pc-top"><h4>Movie Recommendation System</h4><span class="pc-year">2017</span></div>
+          <p>User-user collaborative filtering on MovieLens with Euclidean similarity and Laplace smoothing, evaluated on RMSE and NDCG.</p>
+          <a class="pc-link" href="https://github.com/aisa6148/Movie_Recommendation_2017" target="_blank" rel="noopener">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TEACHING ===================== -->
+  <section id="teaching" class="section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">04 — Teaching</div>
+        <h2>Teaching</h2>
+        <p class="section-intro">
+          This year I'm lead TA for CU Boulder's software engineering capstone — mentoring student teams
+          through the same full lifecycle I write about in my research: not just the code, the judgment
+          calls around it.
+        </p>
+      </div>
+
+      <ul class="mini-list reveal" style="max-width:680px;">
+        <li><span><span class="ml-title">Lead TA</span><span class="ml-sub">Software Engineering Project Management &amp; Mentoring</span></span><span class="ml-year">2025–Present</span></li>
+        <li><span><span class="ml-title">Teaching Assistant — CSCI 3308</span><span class="ml-sub">Software Development Methods and Tools</span></span><span class="ml-year">CU Boulder</span></li>
+        <li><span><span class="ml-title">Ph.D. Representative</span><span class="ml-sub">CS Graduate Professional Development Club</span></span><span class="ml-year">2023</span></li>
+        <li><span><span class="ml-title">Vice Chair</span><span class="ml-sub">CS Graduate Student Association</span></span><span class="ml-year">2022</span></li>
+      </ul>
+
+      <div class="pill-row reveal" style="margin-top:28px;">
+        <span class="pill">Outstanding TA Recognition Award, 2023</span>
+        <span class="pill">Outstanding Service Award, 2023 &amp; 2024</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BEYOND (ART + VOLUNTEER) ===================== -->
+  <section id="beyond" class="art-section">
+    <div class="wrap">
+      <div class="eyebrow reveal" style="justify-content:center;">05 — Beyond</div>
+      <h2 class="reveal" style="margin-top:10px;">Off the clock</h2>
+
+      <div class="reveal" style="margin-top:36px;">
+        <div class="subhead" style="text-align:center;">Creative Space</div>
+        <p class="art-statement">
+          Oil paintings, charcoal sketches, pencil and lead-pencil work — the non-algorithmic side of
+          paying close attention. A running gallery, added to over the years.
+        </p>
+        <div class="medium-tags"><span>Oil Paint</span><span>Charcoal</span><span>Pencil</span><span>Lead-Pencil</span></div>
+
+        <div class="flipbook" id="flipbook">
+          <div class="flipbook-stage">
+        <div class="flip-card" data-idx="0"><img src="images/art/01.jpg" alt="Artwork 1 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="1"><img src="images/art/02.jpg" alt="Artwork 2 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="2"><img src="images/art/03.jpg" alt="Artwork 3 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="3"><img src="images/art/04.jpg" alt="Artwork 4 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="4"><img src="images/art/05.jpg" alt="Artwork 5 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="5"><img src="images/art/06.jpg" alt="Artwork 6 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="6"><img src="images/art/07.jpg" alt="Artwork 7 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="7"><img src="images/art/08.jpg" alt="Artwork 8 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="8"><img src="images/art/09.jpg" alt="Artwork 9 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="9"><img src="images/art/10.jpg" alt="Artwork 10 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="10"><img src="images/art/11.jpg" alt="Artwork 11 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="11"><img src="images/art/12.jpg" alt="Artwork 12 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="12"><img src="images/art/13.jpg" alt="Artwork 13 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="13"><img src="images/art/14.jpg" alt="Artwork 14 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="14"><img src="images/art/15.jpg" alt="Artwork 15 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="15"><img src="images/art/16.jpg" alt="Artwork 16 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="16"><img src="images/art/17.jpg" alt="Artwork 17 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="17"><img src="images/art/18.jpg" alt="Artwork 18 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="18"><img src="images/art/19.jpg" alt="Artwork 19 of 20" loading="lazy" /></div>
+        <div class="flip-card" data-idx="19"><img src="images/art/20.jpg" alt="Artwork 20 of 20" loading="lazy" /></div>
+          </div>
+          <div class="flipbook-controls">
+            <button id="flipPrev" aria-label="Previous artwork"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <span class="flip-counter" id="flipCounter">1 / 20</span>
+            <button id="flipNext" aria-label="Next artwork"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+        </div>
+
+        <a class="btn btn-primary" href="https://photos.app.goo.gl/ajrKkwyVPNbEy7XB8" target="_blank" rel="noopener">View the full gallery ↗</a>
+      </div>
+
+      <hr style="border:none; border-top:1px solid var(--border-soft); margin:64px 0;" />
+
+      <div class="reveal">
+        <div class="subhead" style="text-align:center;">Volunteer Work</div>
+        <ul class="volunteer-list">
+          <li><span class="v-org">Walmart Global Tech</span><span class="v-role">CSR Volunteer, Bangalore · Jan 2018 – Jun 2021</span></li>
+          <li><span class="v-org">Dar Al Atta'a</span><span class="v-role">Administration Volunteer, Muscat, Oman · Oct 2017</span></li>
+          <li><span class="v-org">Basavangudi Government School</span><span class="v-role">Teaching Volunteer · May 2016 – Dec 2017</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact-section" id="contact">
+    <div class="wrap reveal">
+      <div class="eyebrow" style="justify-content:center;">Let's talk</div>
+      <h2>Research rigor, engineering chops, and a point of view — that's what you'd be getting.</h2>
+      <p>Open to research collaborations, engineering roles, and conversations with people who think recommender systems should serve people first.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:aishwarya.satwani@colorado.edu">Email me</a>
+        <a class="btn btn-ghost" href="assets/Aishwarya_Satwani_CV.pdf" download>Download résumé</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/aishwarya-satwani-baaa6612b/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/aisa6148" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/aishwarya_satwani" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Aishwarya Satwani. Built from scratch.</p>
+    <p>Boulder, Colorado</p>
+  </div>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

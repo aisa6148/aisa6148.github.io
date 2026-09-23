@@ -1,0 +1,401 @@
+/* ============================================================
+   Sections — hero, value dial, research, industry, projects,
+   publications, teaching/awards, beyond, contact, footer.
+   Shared primitives (buttons, nav, reveal) live in base.css.
+   ============================================================ */
+
+/* ---------- hero ---------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 68px;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 700px 420px at 82% 18%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%),
+    radial-gradient(ellipse 600px 400px at 8% 85%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 70%);
+  pointer-events: none;
+}
+.hero .wrap { display: grid; grid-template-columns: 1.35fr 0.9fr; gap: 60px; align-items: center; }
+
+.hero-kicker { margin-bottom: 22px; }
+.hero h1 {
+  font-size: clamp(2.5rem, 5.4vw, 4.1rem);
+  line-height: 1.06;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-sub {
+  margin-top: 24px;
+  font-size: 1.18rem;
+  color: var(--text-dim);
+  max-width: 560px;
+}
+.pill-row {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.hero-portrait {
+  position: relative;
+  justify-self: center;
+}
+.hero-portrait .frame {
+  width: 300px; height: 360px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.hero-portrait img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.03); }
+.hero-portrait .tag {
+  position: absolute;
+  bottom: -18px; left: -22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  box-shadow: var(--shadow);
+  line-height: 1.5;
+}
+.hero-portrait .tag b { color: var(--accent-2); display: block; font-size: 0.9rem; }
+
+.scroll-cue {
+  position: absolute;
+  bottom: 34px; left: 28px;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.scroll-cue .line { width: 32px; height: 1px; background: var(--text-faint); animation: pulse-line 2s infinite; }
+@keyframes pulse-line { 50% { transform: scaleX(0.4); opacity: 0.4; } }
+
+/* ---------- value dial ---------- */
+.dial-section { background: var(--bg-soft); border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+.dial-head { max-width: 720px; }
+.dial-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.5rem); margin-top: 10px; }
+.dial-head p { color: var(--text-dim); margin-top: 16px; font-size: 1.03rem; }
+
+.dial-control {
+  margin-top: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+}
+.dial-control-row { display: flex; align-items: center; gap: 20px; }
+.dial-side {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dial-side.left { color: var(--accent-soft); }
+.dial-side.right { color: var(--accent-2-soft); }
+.dial-side .dot { width: 8px; height: 8px; border-radius: 50%; }
+.dial-side.left .dot { background: var(--accent); }
+.dial-side.right .dot { background: var(--accent-2); }
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--border) 50%, var(--accent-2));
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--text);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--text);
+  cursor: pointer;
+}
+
+.dial-readout {
+  margin-top: 14px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+.dial-readout b { color: var(--text); }
+
+.dial-filters {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dial-grid {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.dial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 22px 20px;
+  will-change: transform;
+  transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background 0.2s ease;
+}
+.dial-card:hover { background: var(--bg-card-hover); }
+.dial-card.cat-research { border-left-color: var(--accent); }
+.dial-card.cat-industry { border-left-color: var(--accent-2); }
+.dial-card.cat-teaching,
+.dial-card.cat-personal { border-left-color: var(--text-faint); }
+.dial-card.is-hidden { display: none; }
+
+.dial-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.dial-card h4 { font-size: 1.08rem; line-height: 1.3; }
+.dial-card .meta { font-family: var(--sans); font-size: 0.7rem; color: var(--text-faint); margin-top: 6px; }
+.dial-card p { font-size: 0.9rem; color: var(--text-dim); margin: 12px 0 0; line-height: 1.55; }
+.dial-card .tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+.dial-card .tags span {
+  font-family: var(--sans); font-size: 0.63rem; letter-spacing: 0.03em;
+  padding: 3px 8px; border-radius: 999px; background: var(--bg-soft); color: var(--text-faint);
+}
+.score-badge {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 9px;
+  flex-shrink: 0;
+}
+
+/* ---------- research / built ---------- */
+.section-alt { background: var(--bg-soft); border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+
+.research-list { display: flex; flex-direction: column; gap: 22px; }
+.research-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 34px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 34px;
+}
+.research-card .rc-meta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+.research-card .rc-meta .org { color: var(--accent-soft); display: block; margin-top: 6px; font-size: 0.8rem; }
+.research-card h3 { font-size: 1.35rem; margin-bottom: 14px; }
+.research-card .challenge {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  border-left: 2px solid var(--border);
+  padding-left: 14px;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+.research-card ul { margin: 0; padding-left: 18px; color: var(--text-dim); font-size: 0.94rem; }
+.research-card li { margin-bottom: 8px; line-height: 1.6; }
+.research-card li::marker { color: var(--accent); }
+.research-card .rc-tags { margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+.research-card .rc-tags span {
+  font-family: var(--sans); font-size: 0.65rem; padding: 4px 10px; border-radius: 999px;
+  background: var(--bg-soft); color: var(--text-faint); border: 1px solid var(--border-soft);
+}
+
+/* ---------- industry timeline ---------- */
+.timeline { position: relative; padding-left: 34px; }
+.timeline::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+.tl-item { position: relative; padding-bottom: 44px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: "";
+  position: absolute; left: -34px; top: 4px;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--accent-2);
+}
+.tl-item .tl-date { font-family: var(--sans); font-size: 0.72rem; color: var(--text-faint); }
+.tl-item h3 { font-size: 1.2rem; margin-top: 8px; }
+.tl-item .tl-org { color: var(--accent-2-soft); font-size: 0.92rem; margin-top: 3px; font-family: var(--sans); }
+.tl-item ul { margin: 14px 0 0; padding-left: 18px; color: var(--text-dim); font-size: 0.93rem; }
+.tl-item li { margin-bottom: 7px; line-height: 1.6; }
+.tl-item li::marker { color: var(--accent-2); }
+
+/* ---------- academic projects ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  transition: border-color 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover { border-color: var(--accent-2); transform: translateY(-3px); }
+.project-card .pc-top { display: flex; justify-content: space-between; align-items: center; }
+.project-card h4 { font-size: 1.05rem; }
+.project-card .pc-year { font-family: var(--sans); font-size: 0.68rem; color: var(--text-faint); }
+.project-card p { color: var(--text-dim); font-size: 0.9rem; margin-top: 12px; flex: 1; }
+.project-card .pc-link {
+  margin-top: 16px;
+  font-family: var(--sans); font-size: 0.72rem; color: var(--accent-soft);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.project-card .pc-link svg { width: 12px; height: 12px; }
+
+/* ---------- publications ---------- */
+.pub-list { display: flex; flex-direction: column; }
+.pub-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 26px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.pub-item:first-child { border-top: 1px solid var(--border-soft); }
+.pub-item .pub-year { font-family: var(--sans); color: var(--accent-soft); font-size: 0.85rem; }
+.pub-item p { margin: 0; font-size: 0.97rem; color: var(--text-dim); line-height: 1.65; }
+.pub-item b { color: var(--text); }
+.pub-item a { color: var(--accent-2-soft); border-bottom: 1px dotted var(--accent-2-soft); }
+.pub-item .venue { display: block; margin-top: 6px; font-family: var(--sans); font-size: 0.72rem; color: var(--text-faint); }
+
+/* ---------- teaching ---------- */
+.mini-list { list-style: none; margin: 32px 0 0; padding: 0; }
+.mini-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-soft);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+}
+.mini-list li:first-child { border-top: 1px solid var(--border-soft); }
+.mini-list .ml-title { font-size: 0.96rem; color: var(--text); }
+.mini-list .ml-sub { display: block; font-size: 0.82rem; color: var(--text-faint); margin-top: 3px; }
+.mini-list .ml-year { font-family: var(--sans); font-size: 0.72rem; color: var(--text-faint); white-space: nowrap; }
+.subhead { font-family: var(--sans); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 18px; }
+
+/* ---------- volunteer ---------- */
+.volunteer-list { list-style: none; margin: 32px auto 0; padding: 0; max-width: 560px; }
+.volunteer-list li { padding: 14px 0; border-bottom: 1px solid var(--border-soft); font-size: 0.95rem; text-align: left; display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+.volunteer-list li:first-child { border-top: 1px solid var(--border-soft); }
+.volunteer-list .v-org { color: var(--text); }
+.volunteer-list .v-role { color: var(--text-faint); font-size: 0.82rem; text-align: right; white-space: nowrap; }
+.medium-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ---------- believe (values statement) ---------- */
+.believe-section { text-align: center; }
+.believe-statement {
+  max-width: 780px;
+  margin: 18px auto 0;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  line-height: 1.5;
+  color: var(--text);
+}
+.believe-statement em { font-style: italic; color: var(--accent); }
+
+/* ---------- section intro paragraph ---------- */
+.section-intro { max-width: 680px; color: var(--text-dim); font-size: 1.02rem; margin-top: 14px; line-height: 1.7; }
+
+/* ---------- labeled sub-block (used for publications list) ---------- */
+.mini-link-row { margin-top: 40px; }
+.mini-link-row .subhead { margin-bottom: 14px; }
+
+/* ---------- art section (expanded) ---------- */
+.art-section { text-align: center; }
+.art-statement {
+  max-width: 640px;
+  margin: 18px auto 0;
+  color: var(--text-dim);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+.art-section .medium-tags { justify-content: center; margin: 22px 0; }
+.art-section .medium-tags span {
+  font-family: var(--sans); font-size: 0.72rem; padding: 6px 14px; border-radius: 999px;
+  background: var(--bg-card); border: 1px solid var(--border-soft); color: var(--text-dim);
+}
+
+/* ---------- flip book (art gallery) ---------- */
+.flipbook { max-width: 340px; margin: 36px auto 28px; }
+.flipbook-stage {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  perspective: 1600px;
+}
+.flip-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--bg-card);
+  transform-origin: left center;
+  transition: transform 0.5s cubic-bezier(.3,.1,.2,1), opacity 0.4s ease;
+}
+.flip-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.flipbook-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 18px; }
+.flipbook-controls button {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: border-color 0.2s, color 0.2s;
+}
+.flipbook-controls button:hover { border-color: var(--accent-2); color: var(--accent-2); }
+.flipbook-controls button svg { width: 16px; height: 16px; }
+.flip-counter { font-family: var(--sans); font-size: 0.82rem; color: var(--text-faint); min-width: 54px; text-align: center; }
+
+/* ---------- contact / footer ---------- */
+.contact-section { text-align: center; }
+.contact-section h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.contact-section p { color: var(--text-dim); margin: 18px auto 0; max-width: 520px; }
+.contact-links { margin-top: 40px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+footer { padding: 34px 0; border-top: 1px solid var(--border-soft); }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+footer p { font-family: var(--sans); font-size: 0.72rem; color: var(--text-faint); margin: 0; }
